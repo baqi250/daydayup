@@ -2,5 +2,5 @@ server:
   port: 8081
 spring:  profiles:    active: prod
     
-logging:  level:     root: trace
+logging:  level:     root: info
   path: /spring/log
