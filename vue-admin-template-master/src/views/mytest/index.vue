@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">mytest</div>
+    <div class="dashboard-text">{{tename}}</div>
   </div>
 </template>
 
@@ -10,13 +10,26 @@ import axios from 'axios'
 
 export default {
   name: 'Mytest',
+  data(){
+      return{
+        tename: '111'
+      }
+      
+  },
   computed: {
     ...mapGetters([
       'name'
     ])
   },
   created(){
-
+      axios.get('http://localhost:8084/hello')
+      .then(response=>{
+          console.log(response);
+          this.tename=response.data;
+      })
+      .catch(error=>{
+          console.log(error);
+      })
   }
 }
 </script>
